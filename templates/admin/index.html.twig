@@ -1,0 +1,12 @@
+{% extends 'basefront.html.twig' %}
+
+{% block body %}
+    <h1>Back Office</h1>
+
+    <ul>
+        <li><a href="{{ path('app_formation_admin_index') }}">Gérer les formations</a></li>
+        <li><a href="{{ path('app_playlist_admin_index') }}">Gérer les playlists</a></li>
+        <li><a href="{{ path('app_categorie_admin_index') }}">Gérer les catégories</a></li>
+        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+    </ul>
+{% endblock %}

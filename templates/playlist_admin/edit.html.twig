@@ -1,0 +1,13 @@
+{% extends 'basefront.html.twig' %}
+
+{% block title %}Modifier une playlist{% endblock %}
+
+{% block body %}
+    <h1>Modifier une playlist</h1>
+
+    {{ include('playlist_admin/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+    <a href="{{ path('app_playlist_admin_index') }}">Retour à la liste</a>
+
+    {{ include('playlist_admin/_delete_form.html.twig') }}
+{% endblock %}

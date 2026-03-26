@@ -12,6 +12,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('accueil') }}">Accueil</a>
                     </li>
@@ -20,11 +21,27 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('playlists') }}">Playlists</a>
-                    </li>                    
+                           {% if app.user %}
+                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                {% endif %}
+                    </li>
+                   
+                   {% if app.user %}
+                   {% else %}
+                         <a href="{{ path('app_login') }}">Connexion</a>
+                   {% endif %}
+                    
                 </ul>
             </div>
         </nav>        
-    </div>
+                   </nav>
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div style="color:red; font-weight:bold;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
 {% endblock %}
 {% block body %}{% endblock %}
 {% block footer %}
@@ -32,9 +49,9 @@
         <footer>
             <hr>
             <p><small><i>
-                Consultez nos <a class="link-secondary" href="{{ path('cgu') }}">Conditions Générales d'Utilisation</a>
-            </i></small></p>
-            
+                        Consultez nos <a class="link-secondary" href="{{ path('cgu') }}">Conditions Générales d'Utilisation</a>
+                    </i></small></p>
+
         </footer>
     </div>
 {% endblock %}
